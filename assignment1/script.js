@@ -32,6 +32,6 @@ function processFile(url, words) {
 
 document.getElementById('processButton').addEventListener('click', function() {
     const url = 'filename.html';
-    const words = ['Second', 'First', 'Third'];
+    const words = ['Second', 'First', 'Third' ,'Fifth', 'Sixth'];
     processFile(url, words);
 });
