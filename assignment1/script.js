@@ -6,8 +6,8 @@ function processFile(url, words) {
             const doc = parser.parseFromString(data, 'text/html');
             const elements = doc.body.querySelectorAll('*:not(label):not(p):not(div)');
             elements.forEach(element => element.remove());
-            const labelsAndPs = doc.body.querySelectorAll('label, p');
-            labelsAndPs.forEach(element => {
+            const texts = doc.body.querySelectorAll('label, p');
+            texts.forEach(element => {
                 const text = element.textContent.toLowerCase();
                 for (const word of words) {
                     if (text.includes(word.toLowerCase())) {
@@ -17,7 +17,7 @@ function processFile(url, words) {
                     }
                 }
             });
-            const contentDiv=document.querySelector('#content');
+            let contentDiv=document.querySelector('#content');
             if (!contentDiv) {
                 contentDiv = document.createElement('div');
                 contentDiv.id = 'content';
